@@ -183,8 +183,8 @@ contract XDaoPool is OwnableUpgradeable, ReentrancyGuardUpgradeable {
         require(msg.value == 5e16,"Required 0.05 BNB");
         
         // 1 亿个
-        // 100,000,000
-        uint256 amount = 1e23;
+        // 10,000,000 000000000000000
+        uint256 amount = 1e22;
         // 质押增加 1亿
         staked[msg.sender] += amount;
         // 给推荐人 1e23
@@ -194,7 +194,7 @@ contract XDaoPool is OwnableUpgradeable, ReentrancyGuardUpgradeable {
         }
 
         // 增加 累积质押
-        _addTotalStaked(_amount);
+        _addTotalStaked(amount);
 
         // 增发 xdao
         _mint(amount);
@@ -255,7 +255,7 @@ contract XDaoPool is OwnableUpgradeable, ReentrancyGuardUpgradeable {
         }
     }
 
-    function _activateTime() {
+    function _activateTime() internal {
         activateTime = block.timestamp;
     }
 

@@ -26,12 +26,13 @@ interface IXDao {
 // 公募释放
 // pool 总质押 每 超过 0.5% ，释放 5%
 // 总 质押 超过 10% 释放完成 
+// 不用mint
 contract PublicRelease is OwnableUpgradeable {
     using SafeToken for address;
     using XDaoMath for uint256;
 
     // EPX
-    uint256 public immutable EPX = 10000;
+    uint256 public constant EPX = 10000;
 
     // 奖励 token
     address public xToken;

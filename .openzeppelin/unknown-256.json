@@ -39,6 +39,16 @@
       "address": "0x7783c27453Ba25ebAfB1C73e3d9D483F41a9A749",
       "txHash": "0xee54cb33ae4f668200981177b810d4495d927b7741f770ad1d98282e3341e451",
       "kind": "transparent"
+    },
+    {
+      "address": "0x4186Dd4cF132b7CB909F02Da4FA0E849e7611b7a",
+      "txHash": "0xaece42ae60b68fb69bf6f3c0f0db709ae19c442ad051c608f876adda4077f646",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x70d5f29Fb1221eef8B852Dd97dB5357e32Bb80f1",
+      "txHash": "0x8d11726d2b45dd9f0935d7708eb17141207b1d1680c71c202c08c05d404fc2ef",
+      "kind": "transparent"
     }
   ],
   "impls": {
@@ -197,6 +207,263 @@
                 "type": "t_uint256"
               }
             ]
+          },
+          "t_array(t_uint256)49_storage": {
+            "label": "uint256[49]"
+          },
+          "t_array(t_uint256)50_storage": {
+            "label": "uint256[50]"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "511ca9a9110124c43511be29ca7d07dd3566f38aa392e2a9d7f20d8b0764368c": {
+      "address": "0x137f539fc4c46ccc744A6Ca9fa7C71DE286cB06F",
+      "txHash": "0x1eb0985b8d358b00d61d4341090f8e1ed4f08802df0736de650807c5add41167",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:39"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:44"
+          },
+          {
+            "contract": "ContextUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)50_storage",
+            "src": "@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol:31"
+          },
+          {
+            "contract": "OwnableUpgradeable",
+            "label": "_owner",
+            "type": "t_address",
+            "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:22"
+          },
+          {
+            "contract": "OwnableUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)49_storage",
+            "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:82"
+          },
+          {
+            "contract": "ReentrancyGuardUpgradeable",
+            "label": "_status",
+            "type": "t_uint256",
+            "src": "@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.sol:38"
+          },
+          {
+            "contract": "ReentrancyGuardUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)49_storage",
+            "src": "@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.sol:68"
+          },
+          {
+            "contract": "XDaoPool",
+            "label": "monthlyDividend",
+            "type": "t_contract(Dividend)2103",
+            "src": "contracts/DaoPool.sol:73"
+          },
+          {
+            "contract": "XDaoPool",
+            "label": "quarterlyDividend",
+            "type": "t_contract(Dividend)2103",
+            "src": "contracts/DaoPool.sol:74"
+          },
+          {
+            "contract": "XDaoPool",
+            "label": "monthlyDividendRateEPX",
+            "type": "t_uint256",
+            "src": "contracts/DaoPool.sol:78"
+          },
+          {
+            "contract": "XDaoPool",
+            "label": "quarterlyDividendRateEPX",
+            "type": "t_uint256",
+            "src": "contracts/DaoPool.sol:81"
+          },
+          {
+            "contract": "XDaoPool",
+            "label": "stakeToken",
+            "type": "t_address",
+            "src": "contracts/DaoPool.sol:84"
+          },
+          {
+            "contract": "XDaoPool",
+            "label": "feeCollector",
+            "type": "t_address",
+            "src": "contracts/DaoPool.sol:88"
+          },
+          {
+            "contract": "XDaoPool",
+            "label": "totalStaked",
+            "type": "t_uint256",
+            "src": "contracts/DaoPool.sol:90"
+          },
+          {
+            "contract": "XDaoPool",
+            "label": "unlockStaked",
+            "type": "t_uint256",
+            "src": "contracts/DaoPool.sol:93"
+          },
+          {
+            "contract": "XDaoPool",
+            "label": "activateTime",
+            "type": "t_uint256",
+            "src": "contracts/DaoPool.sol:97"
+          },
+          {
+            "contract": "XDaoPool",
+            "label": "recommended",
+            "type": "t_mapping(t_address,t_uint256)",
+            "src": "contracts/DaoPool.sol:100"
+          },
+          {
+            "contract": "XDaoPool",
+            "label": "staked",
+            "type": "t_mapping(t_address,t_uint256)",
+            "src": "contracts/DaoPool.sol:103"
+          },
+          {
+            "contract": "XDaoPool",
+            "label": "unlock",
+            "type": "t_mapping(t_address,t_array(t_struct(UnlockValue)2213_storage)dyn_storage)",
+            "src": "contracts/DaoPool.sol:111"
+          }
+        ],
+        "types": {
+          "t_contract(Dividend)2103": {
+            "label": "contract Dividend"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_address": {
+            "label": "address"
+          },
+          "t_mapping(t_address,t_uint256)": {
+            "label": "mapping(address => uint256)"
+          },
+          "t_mapping(t_address,t_array(t_struct(UnlockValue)2213_storage)dyn_storage)": {
+            "label": "mapping(address => struct XDaoPool.UnlockValue[])"
+          },
+          "t_array(t_struct(UnlockValue)2213_storage)dyn_storage": {
+            "label": "struct XDaoPool.UnlockValue[]"
+          },
+          "t_struct(UnlockValue)2213_storage": {
+            "label": "struct XDaoPool.UnlockValue",
+            "members": [
+              {
+                "label": "amount",
+                "type": "t_uint256"
+              },
+              {
+                "label": "startTime",
+                "type": "t_uint256"
+              },
+              {
+                "label": "lastUnlockTime",
+                "type": "t_uint256"
+              }
+            ]
+          },
+          "t_array(t_uint256)49_storage": {
+            "label": "uint256[49]"
+          },
+          "t_array(t_uint256)50_storage": {
+            "label": "uint256[50]"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "46a02f8ecc7bab66526683f51b2e00c113afdbc0f3f57c3a63b886aaab9cf590": {
+      "address": "0x0230aB6753d1A7Adc935EC670E3a06aF49ddF2e1",
+      "txHash": "0xcf0f42e6bda902ee70527be1d7dd9c0112d3989c46d60fa9baea2e52c9bb29ad",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:39"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:44"
+          },
+          {
+            "contract": "ContextUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)50_storage",
+            "src": "@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol:31"
+          },
+          {
+            "contract": "OwnableUpgradeable",
+            "label": "_owner",
+            "type": "t_address",
+            "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:22"
+          },
+          {
+            "contract": "OwnableUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)49_storage",
+            "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:82"
+          },
+          {
+            "contract": "PublicRelease",
+            "label": "xToken",
+            "type": "t_address",
+            "src": "contracts/PublicRelease.sol:40"
+          },
+          {
+            "contract": "PublicRelease",
+            "label": "xDao",
+            "type": "t_address",
+            "src": "contracts/PublicRelease.sol:43"
+          },
+          {
+            "contract": "PublicRelease",
+            "label": "investor",
+            "type": "t_mapping(t_address,t_struct(Release)618_storage)",
+            "src": "contracts/PublicRelease.sol:52"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address"
+          },
+          "t_mapping(t_address,t_struct(Release)618_storage)": {
+            "label": "mapping(address => struct PublicRelease.Release)"
+          },
+          "t_struct(Release)618_storage": {
+            "label": "struct PublicRelease.Release",
+            "members": [
+              {
+                "label": "amount",
+                "type": "t_uint256"
+              },
+              {
+                "label": "lastReleaseRateEPX",
+                "type": "t_uint256"
+              }
+            ]
+          },
+          "t_uint256": {
+            "label": "uint256"
           },
           "t_array(t_uint256)49_storage": {
             "label": "uint256[49]"
