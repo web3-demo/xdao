@@ -132,7 +132,7 @@ contract XDaoPool is OwnableUpgradeable, ReentrancyGuardUpgradeable {
         _;
     }
 
-    event Mint(address indexed buyer, address indexed referrer);
+    event Mint(address indexed buyer, address indexed referrer, uint256 time);
     event Activate(address indexed user, uint256 amount);
     
     function initialize(address _stakeToken) public initializer {
@@ -201,7 +201,7 @@ contract XDaoPool is OwnableUpgradeable, ReentrancyGuardUpgradeable {
         // 转移 bnb
         SafeToken.safeTransferETH(feeCollector, msg.value);
 
-        emit Mint(msg.sender, _referrer);
+        emit Mint(msg.sender, _referrer, block.timestamp);
     }
 
     function _mint(uint256 _amount) internal {
