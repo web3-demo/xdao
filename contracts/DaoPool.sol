@@ -94,7 +94,11 @@ contract XDaoPool is OwnableUpgradeable, ReentrancyGuardUpgradeable {
 
     // alice referrer bob
     // bob => a
-    mapping(address => uint256) public recommended;
+    struct Reco {
+        address rel;
+        uint256 creatTime;
+    }
+    mapping(address => Reco[]) private _recommended;
     
     // stake
     mapping(address => uint256) public staked;
@@ -116,18 +120,28 @@ contract XDaoPool is OwnableUpgradeable, ReentrancyGuardUpgradeable {
     modifier checkReferrer(address _referrer) {
         // 买过的不能再买
         // 只能买一次不会造成重复使用推荐人的情况
-        require(recommended[msg.sender] == 0, "minted");
-        recommended[msg.sender] += 1;
+        require(recommendedSize(msg.sender) == 0, "minted");
+        _recommended[msg.sender].push(
+            Reco(
+                _referrer,
+                block.timestamp
+            )
+        );
 
         if ( _referrer != address(0) ) {
             // 最多推荐 50 人
-            recommended[_referrer] += 1;
+            _recommended[_referrer].push(
+                Reco(
+                    msg.sender,
+                    block.timestamp
+                )
+            );
             // 且 _referrer 必须是系统内用户
             // _referrer 自己 使用过
-            require(recommended[_referrer] > 1, "Referrer is not a system address");
+            require(recommendedSize(_referrer) > 1, "Referrer is not a system address");
             // 判断写在修改后，直接判断结果
             // 在修改前判断需要考虑变量的影响
-            require(recommended[_referrer] <= 51, "Maximum of 50 referrals");
+            require(recommendedSize(_referrer) <= 51, "Maximum of 50 referrals");
         }
         _;
     }
@@ -155,6 +169,14 @@ contract XDaoPool is OwnableUpgradeable, ReentrancyGuardUpgradeable {
 
     function setActivate() external  {
         _activateTime();
+    }
+
+    function recommendedSize(address _owner) public view returns(uint256) {
+        return _recommended[_owner].length;
+    }
+
+    function recommended(address _owner) public view returns(Reco[] memory) {
+        return _recommended[_owner];
     }
 
     // function setUnLock(uint256 rate) external onlyOwner {
