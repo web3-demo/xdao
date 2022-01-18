@@ -6,7 +6,7 @@ import "@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.
 
 import "./utils/SafeToken.sol";
 
-import "hardhat/console.sol";
+// import "hardhat/console.sol";
 
 contract Dividend {
 
@@ -214,10 +214,6 @@ contract XDaoPool is OwnableUpgradeable, ReentrancyGuardUpgradeable {
             staked[_referrer] += amount;
             amount *= 2;
         }
-
-        // 增加 累积质押
-        _addTotalStaked(amount);
-
         // 增发 xdao
         _mint(amount);
         // 转移 bnb
@@ -231,7 +227,7 @@ contract XDaoPool is OwnableUpgradeable, ReentrancyGuardUpgradeable {
     }
 
     function _burn(uint256 _amount) internal {
-        IERC20_Miner(stakeToken).burn(_amount);
+        stakeToken.safeTransfer(address(1),_amount);
     }
 
     // 增加 totalStake
@@ -250,6 +246,8 @@ contract XDaoPool is OwnableUpgradeable, ReentrancyGuardUpgradeable {
     function activate(uint256 _amount) external {
         require(_amount > 0,"activate amount need > 0");
 
+        // 增加 累积质押
+        _addTotalStaked(_amount);
         // 更新激活
         _activateUnlock();
 

@@ -82,7 +82,6 @@ contract PublicRelease is OwnableUpgradeable {
     // 当前释放率
     // 这里是离散数
     function releaceEPX(uint256 staked, uint256 totalCap) public pure returns(uint256){
-        // 
         return staked * 10000 * 500 / totalCap / 5;
     }
 
