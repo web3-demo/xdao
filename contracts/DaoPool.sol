@@ -167,7 +167,7 @@ contract XDaoPool is OwnableUpgradeable, ReentrancyGuardUpgradeable {
         feeCollector = _feeCollector;
     }
 
-    function setActivate() external  {
+    function setActivate() external onlyOwner {
         _activateTime();
     }
 
@@ -209,7 +209,7 @@ contract XDaoPool is OwnableUpgradeable, ReentrancyGuardUpgradeable {
         uint256 amount = 1e22;
         // 质押增加 1亿
         staked[msg.sender] += amount;
-        // 给推荐人 1e23
+        // 给推荐人 1e22
         if (_referrer != address(0)) {
             staked[_referrer] += amount;
             amount *= 2;
@@ -276,7 +276,9 @@ contract XDaoPool is OwnableUpgradeable, ReentrancyGuardUpgradeable {
     }
 
     function _activateTime() internal {
-        activateTime = block.timestamp;
+        if(activateTime == 0) {
+            activateTime = block.timestamp;
+        }
     }
 
     // 检查激活

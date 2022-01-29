@@ -789,6 +789,193 @@
           }
         }
       }
+    },
+    "f5afc576279f8bc151bf09cc30332c10ff7a81a56e9a1b022da6f7e94cb29f16": {
+      "address": "0x848d59943381558FC30B68b35f5Acd9E4e220F13",
+      "txHash": "0xa27f4c3bef9628887301833c8755c29c897d63e697e7d16398761a1c052d32e8",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:39"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:44"
+          },
+          {
+            "contract": "ContextUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)50_storage",
+            "src": "@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol:31"
+          },
+          {
+            "contract": "OwnableUpgradeable",
+            "label": "_owner",
+            "type": "t_address",
+            "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:22"
+          },
+          {
+            "contract": "OwnableUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)49_storage",
+            "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:82"
+          },
+          {
+            "contract": "ReentrancyGuardUpgradeable",
+            "label": "_status",
+            "type": "t_uint256",
+            "src": "@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.sol:38"
+          },
+          {
+            "contract": "ReentrancyGuardUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)49_storage",
+            "src": "@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.sol:68"
+          },
+          {
+            "contract": "XDaoPool",
+            "label": "monthlyDividend",
+            "type": "t_contract(Dividend)640",
+            "src": "contracts/DaoPool.sol:73"
+          },
+          {
+            "contract": "XDaoPool",
+            "label": "quarterlyDividend",
+            "type": "t_contract(Dividend)640",
+            "src": "contracts/DaoPool.sol:74"
+          },
+          {
+            "contract": "XDaoPool",
+            "label": "monthlyDividendRateEPX",
+            "type": "t_uint256",
+            "src": "contracts/DaoPool.sol:78"
+          },
+          {
+            "contract": "XDaoPool",
+            "label": "quarterlyDividendRateEPX",
+            "type": "t_uint256",
+            "src": "contracts/DaoPool.sol:81"
+          },
+          {
+            "contract": "XDaoPool",
+            "label": "stakeToken",
+            "type": "t_address",
+            "src": "contracts/DaoPool.sol:84"
+          },
+          {
+            "contract": "XDaoPool",
+            "label": "feeCollector",
+            "type": "t_address",
+            "src": "contracts/DaoPool.sol:88"
+          },
+          {
+            "contract": "XDaoPool",
+            "label": "totalStaked",
+            "type": "t_uint256",
+            "src": "contracts/DaoPool.sol:90"
+          },
+          {
+            "contract": "XDaoPool",
+            "label": "unlockStaked",
+            "type": "t_uint256",
+            "src": "contracts/DaoPool.sol:93"
+          },
+          {
+            "contract": "XDaoPool",
+            "label": "activateTime",
+            "type": "t_uint256",
+            "src": "contracts/DaoPool.sol:97"
+          },
+          {
+            "contract": "XDaoPool",
+            "label": "_recommended",
+            "type": "t_mapping(t_address,t_array(t_struct(Reco)740_storage)dyn_storage)",
+            "src": "contracts/DaoPool.sol:104"
+          },
+          {
+            "contract": "XDaoPool",
+            "label": "staked",
+            "type": "t_mapping(t_address,t_uint256)",
+            "src": "contracts/DaoPool.sol:107"
+          },
+          {
+            "contract": "XDaoPool",
+            "label": "unlock",
+            "type": "t_mapping(t_address,t_array(t_struct(UnlockValue)757_storage)dyn_storage)",
+            "src": "contracts/DaoPool.sol:115"
+          }
+        ],
+        "types": {
+          "t_contract(Dividend)640": {
+            "label": "contract Dividend"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_address": {
+            "label": "address"
+          },
+          "t_mapping(t_address,t_array(t_struct(Reco)740_storage)dyn_storage)": {
+            "label": "mapping(address => struct XDaoPool.Reco[])"
+          },
+          "t_array(t_struct(Reco)740_storage)dyn_storage": {
+            "label": "struct XDaoPool.Reco[]"
+          },
+          "t_struct(Reco)740_storage": {
+            "label": "struct XDaoPool.Reco",
+            "members": [
+              {
+                "label": "rel",
+                "type": "t_address"
+              },
+              {
+                "label": "creatTime",
+                "type": "t_uint256"
+              }
+            ]
+          },
+          "t_mapping(t_address,t_uint256)": {
+            "label": "mapping(address => uint256)"
+          },
+          "t_mapping(t_address,t_array(t_struct(UnlockValue)757_storage)dyn_storage)": {
+            "label": "mapping(address => struct XDaoPool.UnlockValue[])"
+          },
+          "t_array(t_struct(UnlockValue)757_storage)dyn_storage": {
+            "label": "struct XDaoPool.UnlockValue[]"
+          },
+          "t_struct(UnlockValue)757_storage": {
+            "label": "struct XDaoPool.UnlockValue",
+            "members": [
+              {
+                "label": "amount",
+                "type": "t_uint256"
+              },
+              {
+                "label": "startTime",
+                "type": "t_uint256"
+              },
+              {
+                "label": "lastUnlockTime",
+                "type": "t_uint256"
+              }
+            ]
+          },
+          "t_array(t_uint256)49_storage": {
+            "label": "uint256[49]"
+          },
+          "t_array(t_uint256)50_storage": {
+            "label": "uint256[50]"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
     }
   }
 }

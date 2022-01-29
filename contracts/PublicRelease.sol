@@ -49,7 +49,7 @@ contract PublicRelease is OwnableUpgradeable {
     }
     mapping (address => Release) public investor;
 
-    event AddInvestor(address indexed owner, uint256 amount, uint256 releaceRateEPX);
+    event AddInvestor(address indexed owner, uint256 amount, uint256 releaseRateEPX);
 
     function initialize(address _xToken, address _xDao) public initializer {
         __Ownable_init();
@@ -66,14 +66,14 @@ contract PublicRelease is OwnableUpgradeable {
     }
     function addInvestor(ReleaseInput[] memory _invs) external onlyOwner {
         // 从 1 开始拨币
-        uint256 nowReleaceRateEPX = releaceEPX();
+        uint256 nowReleaseRateEPX = releaseEPX();
         for(uint256 i = 0; i < _invs.length; i++) {
             Release storage _inv = investor[_invs[i].owner];
             // 只能添加一次
             if ( _inv.amount == 0 ) {
                 _inv.amount = _invs[i].amount;
-                _inv.lastReleaseRateEPX = nowReleaceRateEPX;
-                emit AddInvestor(_invs[i].owner, _invs[i].amount, nowReleaceRateEPX);
+                _inv.lastReleaseRateEPX = nowReleaseRateEPX;
+                emit AddInvestor(_invs[i].owner, _invs[i].amount, nowReleaseRateEPX);
             }
         }
     }
@@ -81,23 +81,23 @@ contract PublicRelease is OwnableUpgradeable {
     ////////// 释放 率 //////////
     // 当前释放率
     // 这里是离散数
-    function releaceEPX(uint256 staked, uint256 totalCap) public pure returns(uint256){
+    function releaseEPX(uint256 staked, uint256 totalCap) public pure returns(uint256){
         return staked * 10000 * 500 / totalCap / 5;
     }
 
-    function releaceEPX() public view returns(uint256) {
-        return releaceEPX(IXDao(xDao).totalStaked(), IERC20Capped(xToken).cap());
+    function releaseEPX() public view returns(uint256) {
+        return releaseEPX(IXDao(xDao).totalStaked(), IERC20Capped(xToken).cap());
     }
 
-    function Harvest(address _owner) public returns(uint256 releace) {
-        releace = _updateOwner(_owner);
-        xToken.safeTransfer(_owner, releace);
+    function Harvest(address _owner) public returns(uint256 release) {
+        release = _updateOwner(_owner);
+        xToken.safeTransfer(_owner, release);
     }
 
-    function _updateOwner(address _owner) internal returns(uint256 releace) {
+    function _updateOwner(address _owner) internal returns(uint256 release) {
         Release storage _inv = investor[_owner];
-        uint256 newReleaceRateEPX = releaceEPX();
-        releace = (newReleaceRateEPX - _inv.lastReleaseRateEPX).min(EPX) * _inv.amount / EPX;
-        _inv.lastReleaseRateEPX = newReleaceRateEPX;
+        uint256 newReleaseRateEPX = releaseEPX();
+        release = (newReleaseRateEPX - _inv.lastReleaseRateEPX).min(EPX) * _inv.amount / EPX;
+        _inv.lastReleaseRateEPX = newReleaseRateEPX;
     }
 }
